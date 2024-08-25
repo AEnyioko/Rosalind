@@ -1,4 +1,10 @@
-# prints a complemetary strand of DNA
+"""
+Complementing a Strand of DNA
+
+Given: A DNA string s of length at most 1000 bp.
+
+Return: The reverse complement sc of s.
+"""
 
 with open('RosalindData/rosalind_revc.txt', 'r') as comp:
     string = str((comp.read()))

@@ -1,3 +1,13 @@
+"""
+Counting Point Mutations
+
+Given: Two DNA strings s and t of equal length (not exceeding 1 kbp).
+
+Return: The Hamming distance dH(s,t).
+"""
+
+# counts the mismatched nucleotides
+
 def point_mutations(file):
     with open(file, 'r') as PM:
         a = PM.readline()
@@ -12,9 +22,7 @@ def point_mutations(file):
 
 point_mutations('RosalindData/rosalind_hamm.txt')
 
-# other ways
-
-# sum([a != b for a, b in zip(s1, s2)])
+# simpler way
 
 def hamming(s, t):
     return len(list(filter(lambda pair: pair[0]!=pair[1], zip(s,t))))
