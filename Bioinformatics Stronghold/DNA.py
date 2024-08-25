@@ -1,6 +1,6 @@
 # counts the amount of nucleotides
 
-with open("Bioinformatics Stronghold/RosalindTxt/rosalind_dna (1).txt", "r") as f:
+with open("RosalindData/rosalind_dna (1).txt", "r") as f:
     f = f.read()
     numA = f.count('A')
     numC = f.count('C')

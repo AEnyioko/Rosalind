@@ -10,7 +10,7 @@ def point_mutations(file):
     return print(count)
 
 
-point_mutations('Bioinformatics Stronghold/RosalindTxt/rosalind_hamm (1).txt')
+point_mutations('RosalindData/rosalind_hamm.txt')
 
 # other ways
 

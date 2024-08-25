@@ -2,7 +2,7 @@
 
 GC_dict = {}
 
-with open('Bioinformatics Stronghold/RosalindTxt/rosalind_gc (2).txt', 'r') as GC:
+with open('RosalindData/rosalind_gc.txt', 'r') as GC:
     for line in GC.readlines():      
         if '>' in line:
             key = line.strip()

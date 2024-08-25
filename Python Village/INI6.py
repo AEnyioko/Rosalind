@@ -1,4 +1,4 @@
-w = open("Rosalind/Rosalind_Txt/rosalind_ini6.txt", "r")
+w = open("RosalindData/rosalind_ini6.txt", "r")
 
 dictionary = {}
 

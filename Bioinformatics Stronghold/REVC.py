@@ -1,6 +1,6 @@
 # prints a complemetary strand of DNA
 
-with open('Bioinformatics Stronghold/RosalindTxt/rosalind_revc (1).txt', 'r') as comp:
+with open('RosalindData/rosalind_revc.txt', 'r') as comp:
     string = str((comp.read()))
 
     for i in reversed(string):
@@ -15,5 +15,5 @@ with open('Bioinformatics Stronghold/RosalindTxt/rosalind_revc (1).txt', 'r') as
 
 # a simpler way
 
-s = 'AAAACCCGGT'
-print(s[::-1].translate(str.maketrans('ACGT', 'TGCA')))
+# s = 'AAAACCCGGT'
+# print(s[::-1].translate(str.maketrans('ACGT', 'TGCA')))

@@ -1,4 +1,4 @@
-f = open('Rosalind/Python Village/Rosalind_Txt/rosalind_ini5.txt', 'r')
+f = open('RosalindData/rosalind_ini5.txt', 'r')
 
 for line in f:
     a = f.readline()

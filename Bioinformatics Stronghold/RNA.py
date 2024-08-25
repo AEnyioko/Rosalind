@@ -16,10 +16,10 @@ def tr(input, output):
     return o.read()
     
 print(
-tr("Bioinformatics Stronghold/RosalindTxt/rosalind_rna (2).txt", "Bioinformatics Stronghold/transcribed")
+tr("RosalindData/rosalind_rna.txt", "Bioinformatics Stronghold/transcribed")
     )
 
 # simple way
 
-with open('Bioinformatics Stronghold/RosalindTxt/rosalind_rna (2).txt', 'r') as dna:
-    print(str(dna.read().replace('T', 'U')))
+# with open('RosalindData/rosalind_rna.txt', 'r') as dna:
+#    print(str(dna.read().replace('T', 'U')))
