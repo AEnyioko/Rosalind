@@ -1,6 +1,6 @@
 # prints a complemetary strand of DNA
 
-with open('Rosalind/Bioinformatics Stronghold/RosalindTxt/rosalind_revc (1).txt', 'r') as comp:
+with open('Bioinformatics Stronghold/RosalindTxt/rosalind_revc (1).txt', 'r') as comp:
     string = str((comp.read()))
 
     for i in reversed(string):

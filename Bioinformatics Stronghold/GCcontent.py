@@ -1,6 +1,8 @@
+# sorts the strings into a dictionary with their string
+
 GC_dict = {}
 
-with open('Rosalind/Bioinformatics Stronghold/RosalindTxt/rosalind_gc (2).txt', 'r') as GC:
+with open('Bioinformatics Stronghold/RosalindTxt/rosalind_gc (2).txt', 'r') as GC:
     for line in GC.readlines():      
         if '>' in line:
             key = line.strip()
@@ -13,9 +15,10 @@ with open('Rosalind/Bioinformatics Stronghold/RosalindTxt/rosalind_gc (2).txt', 
                 GC_dict[key] = [value]
 
 
+# counts the GC content in each string
 
 def GC_Content(dict):
-    """Calculates GC Content in a dictionary"""
+    """Prints the GC content and the name of the greatest string"""
 
     Content = {}
     maxi = ''
