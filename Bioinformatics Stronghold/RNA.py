@@ -23,7 +23,7 @@ def tr(input, output):
     return o.read()
     
 print(
-tr("RosalindData/rosalind_rna.txt", "Bioinformatics Stronghold/transcribed")
+tr("RosalindData/rosalind_rna.txt", "Bioinformatics Stronghold/RNA_export")
     )
 
 # simple way
