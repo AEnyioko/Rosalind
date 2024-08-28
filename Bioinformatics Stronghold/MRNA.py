@@ -30,12 +30,12 @@ codons = {
 
 # obtain protein to analyze
 protein_seq  = ''
-with open ('RosalindData/rosalind_mrna (4).txt', 'r') as Prot:
+with open ('RosalindData/rosalind_mrna (5).txt', 'r') as Prot:
     for line in Prot:
         protein_seq += line.strip()
 
 # checks how many variations a protein has
-
+combo = 1
 for protein in protein_seq:
     count = 0
     for k in codons:
