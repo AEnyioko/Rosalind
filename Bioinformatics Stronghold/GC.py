@@ -8,8 +8,6 @@ Rosalind allows for a default error of 0.001 in all decimal answers unless other
 
 # created a dictionary to store sequence name and GC content value
 
-# calculates the GC content in each string
-
 def GC_Content(dict):
     """Prints the name and value of the sequence with the highest GC content"""
 
@@ -28,6 +26,8 @@ def GC_Content(dict):
 
     Content = {}
     maxi = ''
+
+# calculates the GC content in each string
 
     for k, v in GC_dict.items():
         a = str(v)
