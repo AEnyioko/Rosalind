@@ -27,24 +27,28 @@ codons = {
     'UGG': 'W',     'CGG': 'R',     'AGG': 'R',     'GGG': 'G' 
 }
 
+def potential_translations(seq_file):
 
-# obtain protein to analyze
-protein_seq  = ''
-with open ('RosalindData/rosalind_mrna (5).txt', 'r') as Prot:
-    for line in Prot:
-        protein_seq += line.strip()
+    # obtain protein to analyze
+    protein_seq  = ''
+    with open (seq_file, 'r') as Prot:
+        for line in Prot:
+            protein_seq += line.strip()
 
-# checks how many variations a protein has
-combo = 1
-for protein in protein_seq:
-    count = 0
-    for k in codons:
-        if codons[k] == protein:
-            count += 1
+    # checks how many variations a protein has
+    combo = 1
+    for protein in protein_seq:
+        count = 0
+        for k in codons:
+            if codons[k] == protein:
+                count += 1
 
-# multiplies each variation for each protein in the sequence
-    combo = combo * count
+    # multiplies each variation for each protein in the sequence
+        combo = combo * count
 
-# multiplied by 3 for the 3 variations of stop codons
-print(3 * combo % 1000000)
+    # multiplied by 3 for the 3 variations of stop codons
+    final = 3 * combo % 1000000
 
+    return final
+
+print(potential_translations('RosalindData/rosalind_mrna (4).txt'))
