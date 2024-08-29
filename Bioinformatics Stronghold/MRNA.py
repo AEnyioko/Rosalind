@@ -29,7 +29,7 @@ codons = {
 
 def potential_translations(seq_file):
 
-    # obtain protein to analyze
+    # obtain proteins to analyze
     protein_seq  = ''
     with open (seq_file, 'r') as Prot:
         for line in Prot:
