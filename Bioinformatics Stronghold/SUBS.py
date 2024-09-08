@@ -20,3 +20,4 @@ def motif(s_file):
            print(i + 1, end=', ')
     
 motif('RosalindData/rosalind_subs.txt')
+
