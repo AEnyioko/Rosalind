@@ -24,20 +24,21 @@ profile_matrix = {
                     'G': 0, 
                     'T': 0
                   } # creates profile matrix array and stores in dict
-b = {}
-s = ''
 
-for i in range(len(a)):
-    for n in range(len(a[i])):
+
+for n in range(8):
+    s = ''
+    for i in range(len(a)):
         s = s + (a[i][n])
-        
-count = s.count("A"), s.count("C"), s.count("G"), s.count("T")
-print(count)
+    count = s.count("A"), s.count("C"), s.count("G"), s.count("T")
+    print(count)
+    c = 0
+    for i in profile_matrix.keys():
+        profile_matrix[i] = count[c] 
+        c += 1   
 
-c = 0
-for i in profile_matrix.keys():
-    profile_matrix[i] = count[c] 
-    c += 1
+
+
 
 
 
