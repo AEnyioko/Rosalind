@@ -8,8 +8,9 @@ Return: A consensus string and profile matrix for the collection. (If several po
 """
 
 import numpy as np
+import sys
 
-with open('RosalindData/rosalind_cons (3).txt', 'r') as string:
+with open('RosalindData/rosalind_cons (6).txt', 'r') as string:
     strings = ''
     count = 0
     strlen = 0
@@ -66,7 +67,32 @@ f = np.array(pm_array)
 row_indices_of_max = np.argmax(f, axis=0)
 
 # gets the consensus string from translating the row value to the corresponding kbp
-ans = str(row_indices_of_max).translate(str.maketrans('0123', 'ACGT'))
+rows = str(row_indices_of_max).translate(str.maketrans('0123', 'ACGT'))
+ans = ''
+for l in rows:
+    ans = ans + l.strip()
 
+apm = ''
+for l in f[0]:
+    apm = apm + str(l) + ' '
+
+cpm = ''
+for l in f[1]:
+    cpm = cpm + str(l) + ' '
+
+gpm = ''
+for l in f[2]:
+    gpm = gpm + str(l) + ' '
+
+tpm = ''
+for l in f[3]:
+    tpm = tpm + str(l) + ' '
+
+sys.stdout = open('ans.txt', 'w')
 print(str(ans)[1:-1])
-print(f)
+print('A: ' + apm)
+print('C: ' + cpm)
+print('G: ' + gpm)
+print('T: ' + tpm)
+sys.stdout.close()
+
