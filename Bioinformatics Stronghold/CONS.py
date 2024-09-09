@@ -9,11 +9,13 @@ Return: A consensus string and profile matrix for the collection. (If several po
 
 import numpy as np
 
-with open('RosalindData/rosalind_cons (2).txt', 'r') as string:
+with open('RosalindData/rosalind_cons (3).txt', 'r') as string:
     strings = ''
     count = 0
+    strlen = 0
 
-    for line in string.readlines(): # takes each string a seperates the kbps
+# takes each string a seperates the kbps
+    for line in string.readlines(): 
         if '>' in line:
             if count == 0:
                 key = line.strip()
@@ -24,13 +26,16 @@ with open('RosalindData/rosalind_cons (2).txt', 'r') as string:
                 
         else:
             value = line.strip()
-            strings += (value)
+            for n in line.strip():
+                strlen += 1
+                strings += (n + ',')
 
-g = round(len(strings[0:len(strings) - 1])/(count - 1))
+# gets the len of the strings to find array row length
+arraxis = round(strlen/count) 
 
+# converts it to array
+a = np.array(strings.split(',')).reshape(count, (arraxis + 1)) 
 
-a = np.array(strings.split(',')) # converts it to array
-print(a)
 pm_dict = {
                     'A': [], 
                     'C': [], 
@@ -38,8 +43,8 @@ pm_dict = {
                     'T': []
                   } 
 
-
-for n in range(g): # creates profile matrix array and stores in dict
+# creates profile matrix by making a dict and turning it into an array
+for n in range(arraxis): 
     s = ''
     for i in range(len(a)):
         s = s + (a[i][n])
@@ -54,10 +59,14 @@ pm_array = []
 for i in pm_dict.keys():
     pm_array.append(pm_dict[i])
 
+# stores the array
 f = np.array(pm_array)
 
 # Find the indices of the maximum values along each column (axis=0)
 row_indices_of_max = np.argmax(f, axis=0)
 
-print(str(row_indices_of_max).translate(str.maketrans('0123', 'ACGT')))
+# gets the consensus string from translating the row value to the corresponding kbp
+ans = str(row_indices_of_max).translate(str.maketrans('0123', 'ACGT'))
+
+print(str(ans)[1:-1])
 print(f)
