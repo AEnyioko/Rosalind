@@ -9,37 +9,55 @@ Return: A consensus string and profile matrix for the collection. (If several po
 
 import numpy as np
 
-with open('RosalindData/rosalind_cons.txt', 'r') as string:
+with open('RosalindData/rosalind_cons (2).txt', 'r') as string:
     strings = ''
+    count = 0
+
     for line in string.readlines(): # takes each string a seperates the kbps
-        if '>' not in line:
-             for n in line:
-                strings =  strings + n + ','
+        if '>' in line:
+            if count == 0:
+                key = line.strip()
+                count += 1         
+            else:
+                count += 1
+                strings += ','
+                
+        else:
+            value = line.strip()
+            strings += (value)
 
-a = np.array(strings.split(',')).reshape(7,9) # converts it to array
-
-profile_matrix = {
-                    'A': 0, 
-                    'C': 0, 
-                    'G': 0, 
-                    'T': 0
-                  } # creates profile matrix array and stores in dict
+g = round(len(strings[0:len(strings) - 1])/(count - 1))
 
 
-for n in range(8):
+a = np.array(strings.split(',')) # converts it to array
+print(a)
+pm_dict = {
+                    'A': [], 
+                    'C': [], 
+                    'G': [], 
+                    'T': []
+                  } 
+
+
+for n in range(g): # creates profile matrix array and stores in dict
     s = ''
     for i in range(len(a)):
         s = s + (a[i][n])
     count = s.count("A"), s.count("C"), s.count("G"), s.count("T")
-    print(count)
     c = 0
-    for i in profile_matrix.keys():
-        profile_matrix[i] = count[c] 
+    for i in pm_dict.keys():
+        pm_dict.setdefault(i, [])
+        pm_dict[i].append(count[c])  
         c += 1   
 
+pm_array = []
+for i in pm_dict.keys():
+    pm_array.append(pm_dict[i])
 
+f = np.array(pm_array)
 
+# Find the indices of the maximum values along each column (axis=0)
+row_indices_of_max = np.argmax(f, axis=0)
 
-
-
-print(profile_matrix)
+print(str(row_indices_of_max).translate(str.maketrans('0123', 'ACGT')))
+print(f)
