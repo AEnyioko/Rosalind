@@ -11,12 +11,12 @@ import numpy as np
 import sys
 
 def cons_prof(file):
+    # takes each string a seperates the kbps
     with open(file, 'r') as string:
         strings = ''
         count = 0
         strlen = 0
-
-    # takes each string a seperates the kbps
+    
         for line in string.readlines(): 
             if '>' in line:
                 if count == 0:
@@ -91,7 +91,7 @@ def cons_prof(file):
         tpm = tpm + str(l) + ' '
 
     # exports the answer to a text file
-    sys.stdout = open('ans.txt', 'w')
+    sys.stdout = open('Bioinformatics Stronghold/CONSans.txt', 'w')
     print(str(ans)[1:-1])
     print('A: ' + apm)
     print('C: ' + cpm)
@@ -99,4 +99,4 @@ def cons_prof(file):
     print('T: ' + tpm)
     sys.stdout.close()
 
-cons_prof('RosalindData/rosalind_cons (6).txt')
+cons_prof('RosalindData/rosalind_cons (4).txt')
