@@ -28,13 +28,9 @@ b = {}
 s = ''
 
 for i in range(len(a)):
-    nv = 1
     for n in range(len(a[i])):
         s = s + (a[i][n])
-        if i == nv:
-            print(s)
-         
-
+        
 count = s.count("A"), s.count("C"), s.count("G"), s.count("T")
 print(count)
 
