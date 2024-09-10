@@ -20,14 +20,14 @@ def cons_prof(file):
         for line in string.readlines(): 
             if '>' in line:
                 if count == 0:
-                    key = line.strip()
+
                     count += 1         
                 else:
                     count += 1
                     strings += ','
                     
             else:
-                value = line.strip()
+
                 for n in line.strip():
                     strlen += 1
                     strings += (n + ',')
@@ -99,4 +99,4 @@ def cons_prof(file):
     print('T: ' + tpm)
     sys.stdout.close()
 
-cons_prof('RosalindData/rosalind_cons (4).txt')
+cons_prof('RosalindData/rosalind_cons (3).txt')
