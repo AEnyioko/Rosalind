@@ -20,14 +20,12 @@ def cons_prof(file):
         for line in string.readlines(): 
             if '>' in line:
                 if count == 0:
-
                     count += 1         
                 else:
                     count += 1
                     strings += ','
                     
             else:
-
                 for n in line.strip():
                     strlen += 1
                     strings += (n + ',')
