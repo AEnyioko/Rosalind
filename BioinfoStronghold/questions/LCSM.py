@@ -8,20 +8,23 @@ Return: A longest common substring of the collection. (If multiple solutions exi
 
 def shared(file):
     # puts keys and strings in their lists
-    keys = []
-    strings = []
+    sdict = {}
     string = ''
     with open(file, 'r') as overlap:
         for line in overlap.readlines():
             if '>' not in line:
                 string += line.strip()
             else:
-                keys.append(line.strip())
-                if string != '':
-                    strings.append(string)
-                    string = ''
+                key = line.strip()
+                if key in sdict:
+                    sdict[key].append(string)
+                else:
+                    if string != '':
+                        sdict[key] = string
+                        string = ''
+    sequence = ''
+    for s in sdict.values():
+        sequence = s[0]
+    print(sequence)
     
-    
-    return strings
-
 print(shared('RosalindData/rosalind_lcsm.txt'))
