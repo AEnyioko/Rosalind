@@ -8,20 +8,29 @@ Return: A longest common substring of the collection. (If multiple solutions exi
 
 def shared(file):
     # puts keys and strings in their lists
-    keys = []
     strings = []
     string = ''
     with open(file, 'r') as overlap:
         for line in overlap.readlines():
-            if '>' not in line:
-                string += line.strip()
+            if '>' in line:
+                strings.append(string)
+                string = ''
             else:
-                keys.append(line.strip())
-                if string != '':
-                    strings.append(string)
-                    string = ''
+                string += line.strip()   
+    del strings[0]
+    strings.append(string)
     
     
-    return strings
+    i = 0
+    j = 999
+    substring = strings[0][i:j]
+    motif = ''
+    for s in strings:
+        if substring not in s:
+            j -= 1
+            if j == 1:
+                j == len(strings[0])
+                i += 1
+            print(substring)
 
-print(shared('RosalindData/rosalind_lcsm.txt'))
+shared('RosalindData/rosalind_lcsm.txt')
