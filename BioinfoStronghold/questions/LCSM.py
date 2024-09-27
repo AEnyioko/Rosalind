@@ -25,7 +25,7 @@ def shared(file):
     substring = sorted([main_string[x:y] for x, y in combinations(
         range(len(main_string) + 1), r = 2)], key=len)
 
-    print(substring[0:10].reverse())
+    print(substring[-1])
 
     for s in strings:
         for ss in reversed(substring):
