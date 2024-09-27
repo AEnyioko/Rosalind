@@ -26,6 +26,8 @@ def shared(file):
     substring = sorted([main_string[x:y] for x, y in combinations(
         range(len(main_string) + 1), r = 2)], key=len)
     
+    
+    
     # checks if substrings is in all strings going from largest to smallest substring
     flag = True
     for n in substring[::-1]:
