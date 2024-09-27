@@ -21,20 +21,32 @@ def shared(file):
     del strings[0]
     strings.append(string)
     
+    # generates substrings and sorts them based on length
     main_string = strings[0]
     substring = sorted([main_string[x:y] for x, y in combinations(
         range(len(main_string) + 1), r = 2)], key=len)
-
-    print(substring[-1])
-
-    for s in strings:
-        for ss in reversed(substring):
-            if ss not in strings:
-                continue
+    
+    # checks if substrings is in all strings going from largest to smallest substring
+    flag = True
+    for n in substring[::-1]:
+        for s in strings:
+            if n in s:
+                if flag == False:
+                    break
+                else:
+                    if s == strings[-1]:
+                        print(n)
+                        flag = False
             else:
-                if s == strings[-1]:
-                    print(ss)
-        
-    return None
-
-shared('RosalindData/rosalind_lcsm.txt')
+                continue
+                    
+    """
+    improvements to make: 
+    simpler logic for flag system
+    check 1 substring and shrink instead of checking all possible
+        less processing strain
+        more efficient
+        create scenario if no common string found
+    """
+    
+shared('RosalindData/rosalind_lcsm (1).txt')
