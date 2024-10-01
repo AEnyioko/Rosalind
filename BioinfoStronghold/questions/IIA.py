@@ -9,4 +9,20 @@ Return: The probability that at least N Aa Bb organisms will belong to the k-th 
 (don't count the Aa Bb mates at each level). 
 Assume that Mendel's second law holds for the factors.
 """
+import scipy.stats as stats
+
+def prob(gen, success):
+    # total offspring and Aa Bb phenotype chance
+    n = 2 ** gen 
+    chance = 0.25
+
+    # cumulative probability of getting non-Aa Bb offspring in <= success offspring
+    cumulative_prob = stats.binom.cdf(success - 1, n, chance)
+
+    # 1 - chance of failure to get at least chance of success
+    at_least_prob = 1 - cumulative_prob
+
+    return at_least_prob
+
+print(prob(5, 9))
 
