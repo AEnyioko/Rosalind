@@ -19,7 +19,7 @@ def prob(gen, success):
     # cumulative probability of getting non-Aa Bb offspring in <= success offspring
     cumulative_prob = stats.binom.cdf(success - 1, n, chance)
 
-    # 1 - chance of failure to get at least chance of success
+    # 1 - chance of failure = least chance of success
     at_least_prob = 1 - cumulative_prob
 
     return at_least_prob
