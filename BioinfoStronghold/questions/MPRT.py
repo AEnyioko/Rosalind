@@ -8,7 +8,7 @@ output its given access ID followed by a list of locations in the protein string
 """
 import urllib.request
 import certifi
-       
+
 def motif(file):
     """
     Prints the locations of the N-glycosylation motif 
