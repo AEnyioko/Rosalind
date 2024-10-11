@@ -21,5 +21,5 @@ with open('RosalindData/rosalind_revc.txt', 'r') as comp:
 
 # a simpler way
 
-# s = 'AAAACCCGGT'
-# print(s[::-1].translate(str.maketrans('ACGT', 'TGCA')))
+s = 'AAAACCCGGT'
+print(s[::-1].translate(str.maketrans('ACGT', 'TGCA')))
