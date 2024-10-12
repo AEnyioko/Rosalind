@@ -34,12 +34,12 @@ def open_reading_frames(file):
     reading_frames = []
 
     for i in range(3):
-        forward_frames = (find_frames(rna[i:]))
+        forward_frames = find_frames(rna[i:])
         reading_frames.extend(forward_frames)
 
     reversedrna = Seq(seq).reverse_complement_rna()
     for i in range(3):
-        reverse_frames = (find_frames(reversedrna[i:]))
+        reverse_frames = find_frames(reversedrna[i:])
         reading_frames.extend(reverse_frames)
 
     # reads all 6 reading frames
