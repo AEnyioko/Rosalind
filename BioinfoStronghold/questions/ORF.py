@@ -9,7 +9,6 @@ def open_reading_frames(file):
     stop_codons = ['UAA', 'UAG', 'UGA']
     start_codon = 'AUG'
     seq = ''
-    reading_frames = []
 
     # puts FASTA in string
     with open(file, 'r') as dna:
@@ -18,8 +17,7 @@ def open_reading_frames(file):
 
     rna = Seq(seq).transcribe()
 
-    # locates the frames
-
+    # generates the possible sequences
     def find_frames(sequence):
         orfs = []
         for i in range(len(sequence)):
@@ -31,23 +29,26 @@ def open_reading_frames(file):
                         break
 
         return orfs
+    
+    # creates the reading frames for the complementary and reverse strands
+    reading_frames = []
 
-# creates frames
     for i in range(3):
         forward_frames = (find_frames(rna[i:]))
         reading_frames.extend(forward_frames)
 
-    reversedrna = rna.reverse_complement()
+    reversedrna = Seq(seq).reverse_complement_rna()
     for i in range(3):
         reverse_frames = (find_frames(reversedrna[i:]))
         reading_frames.extend(reverse_frames)
 
-# reads all 3 reading frames
+    # reads all 6 reading frames
     proteins = []
     for frame in reading_frames:
-        proteins.append(str(Seq(frame).translate()))
+        if (str(Seq(frame).translate())) not in proteins:
+            proteins.append(str(Seq(frame).translate()))
 
     return proteins
         
-for protein in open_reading_frames('RosalindData/rosalind_orf (5).txt'):
-    print(protein)
+for protein in open_reading_frames('RosalindData/rosalind_orf (7).txt'):
+    print(protein[:-1])
