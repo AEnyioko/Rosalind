@@ -15,6 +15,7 @@ def open_reading_frames(file):
        for line in dna.readlines()[1:]:
             seq += line.strip()
 
+    # converts to rna
     rna = Seq(seq).transcribe()
 
     # generates the possible sequences
