@@ -89,7 +89,7 @@ def cons_prof(file):
         tpm = tpm + str(l) + ' '
 
     # exports the answer to a text file
-    sys.stdout = open('BioStrhld/exports/CONSans.txt', 'w')
+    sys.stdout = open('BioinfoStronghold/exports/CONSans.txt', 'w')
     print(str(ans)[1:-1])
     print('A: ' + apm)
     print('C: ' + cpm)
