@@ -42,13 +42,13 @@ def shared(file):
             else:
                 continue
                     
-    """
-    improvements to make: 
-    simpler logic for flag system
-    check 1 substring and shrink instead of checking all possible
-        less processing strain
-        more efficient
-        create scenario if no common string found
-    """
+
+    #improvements to make: 
+    #simpler logic for flag system
+    #check 1 substring and shrink instead of checking all possible
+        #less processing strain
+        #more efficient
+        #create scenario if no common string found
+
     
 shared('RosalindData/rosalind_lcsm (1).txt')
