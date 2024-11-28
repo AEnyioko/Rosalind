@@ -22,6 +22,6 @@ def ego(number):
 
     return n_of_perms
 
-ego(6)
+print(ego(6))
 
 
