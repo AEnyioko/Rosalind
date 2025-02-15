@@ -1,41 +1,22 @@
-def longest():
-    """
-    Longest Increasing Subsequence
+"""
+Longest Increasing Subsequence
 
-    Given: A positive integer n≤10000 followed by a permutation π of length n.
+Given: A positive integer n≤10000 followed by a permutation π of length n.
 
-    Return: A longest increasing subsequence of π, 
-    followed by a longest decreasing subsequence of π.
-    """
+Return: A longest increasing subsequence of π, 
+followed by a longest decreasing subsequence of π.
+"""
 
-perm = [8, 2, 1, 6, 5, 7, 4, 3, 9]
+import bisect
 
-def longest_seq(permutation):
-    increasing = []
-    i_snapshot = []
-    decreasing = []
-    d_snapshot = []
+def longest_seq(file):
 
-    for i in range(len(permutation)):
-        increasing.append(permutation[i])
-        for j in range(len(increasing)):
-            if permutation[i] > increasing[j]:
-                i_snapshot.append(increasing[0:-1])
-                increasing = increasing[:j]
-                increasing.append(permutation[i])
-                break
-
-    for i in range(len(permutation)):
-        decreasing.append(permutation[i])
-        for j in range(len(decreasing)):
-            if permutation[i] < decreasing[j]:
-                d_snapshot.append(decreasing[:-1])
-                decreasing = decreasing[:j]
-                decreasing.append(permutation[i])
-                break
-
-    print(max(d_snapshot, key=len), max(i_snapshot, key=len))
+    with open(file, 'r') as perm:
+        old = perm.readlines()[1].strip()
+        list_of_permutations = old.split()
+        for i in range(len(list_of_permutations)):
+            list_of_permutations[i] = int(list_of_permutations[i])
 
     return None
 
-longest_seq(perm)
+longest_seq('RosalindData/rosalind_lgis (1).txt')
