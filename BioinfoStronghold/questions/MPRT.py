@@ -23,7 +23,7 @@ def motif(file):
             location = []
 
             # generates readable sequence
-            for line in urllib.request.urlopen(url, cafile=certifi.where()):
+            for line in urllib.request.urlopen(url):
                 if b'>' not in line:
                     seq += line.decode("utf-8").strip()
 
