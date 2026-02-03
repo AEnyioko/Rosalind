@@ -38,7 +38,8 @@ def open_reading_frames(file):
         forward_frames = find_frames(rna[i:])
         reading_frames.extend(forward_frames)
 
-    reversedrna = Seq(seq).reverse_complement_rna()
+    # compute reverse-complement of the DNA, then transcribe to RNA
+    reversedrna = Seq(seq).reverse_complement().transcribe()
     for i in range(3):
         reverse_frames = find_frames(reversedrna[i:])
         reading_frames.extend(reverse_frames)
@@ -46,10 +47,17 @@ def open_reading_frames(file):
     # reads all 6 reading frames
     proteins = []
     for frame in reading_frames:
-        if (str(Seq(frame).translate())) not in proteins:
-            proteins.append(str(Seq(frame).translate()))
+        prot = Seq(frame).translate()
+        prot_str = str(prot).rstrip('*')
+        if prot_str not in proteins:
+            proteins.append(prot_str)
 
     return proteins
-        
-for protein in open_reading_frames('RosalindData/rosalind_orf (7).txt'):
-    print(protein[:-1])
+
+
+if __name__ == '__main__':
+    import sys
+    infile = 'RosalindData/rosalind_orf (7).txt'
+    if len(sys.argv) > 1:
+        infile = sys.argv[1]
+    open_reading_frames(infile)
