@@ -55,9 +55,5 @@ def open_reading_frames(file):
     return proteins
 
 
-if __name__ == '__main__':
-    import sys
-    infile = 'RosalindData/rosalind_orf (7).txt'
-    if len(sys.argv) > 1:
-        infile = sys.argv[1]
-    open_reading_frames(infile)
+for p in open_reading_frames():
+    print(p)
