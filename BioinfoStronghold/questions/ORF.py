@@ -55,5 +55,5 @@ def open_reading_frames(file):
     return proteins
 
 
-for p in open_reading_frames():
-    print(p)
+# for p in open_reading_frames():
+#     print(p)
